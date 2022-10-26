@@ -21,7 +21,7 @@ fun comprarEntrada(){
     for(persona in fila) {
         if(persona.DNI==dni){
                 print("Entrada comprada")
-                fila.remove(persona)
+                fila.remove(persona)A
         }else{
             print("No estás en la lista")
             return
