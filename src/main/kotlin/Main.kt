@@ -26,7 +26,7 @@ fun main(args: Array<String>) {
 
                 val p = Persona(dni, fila.lastIndex + 1, nombre, telefono)
                 fila.add(p)
-                comprarEntrada()A
+                comprarEntrada()
             } else {
                 println("Imposible añadir mas personas a la lista")
             }
