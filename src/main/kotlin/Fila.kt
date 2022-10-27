@@ -23,36 +23,73 @@ fun comprarEntrada(){
                 print("Entrada comprada")
                 fila.remove(persona)
         }else{
-            print("No estás en la lista")
+            print("No estás en la cola")
             return
         }
     }
     }
-fun colarse(){
-    var pt=Persona("111111111A",0,"Hola","123456789")
+fun colarse() {
+    if (fila.size > 2) {
+        print("Introduce el DNI de la persona que conoces: ")
+        var tmp2: String? = readLine()
+        var dni2 = tmp2.toString()
+        for (persona in fila) {
+            if (persona.DNI == dni2) {
+                println("Conoces a ${persona.nombre},te pondremos detrás suya")
+                print("Introduce tu DNI por favor: ")
+                var tmp: String? = readLine()
+                var dni = tmp.toString()
 
-    print("Introduce tu DNI por favor: ")
-    var tmp:String?=readLine()
-    var dni=tmp.toString()
+                print("Introduce tu nombre por favor: ")
+                var n: String? = readLine()
+                var nombre = tmp.toString()
 
-    print("Introduce tu nombre por favor: ")
-    var tmp1:String?=readLine()
-    var nombre=tmp1.toString()
+                print("Introduce tu telefono por favor: ")
+                var t: String? = readLine()
+                var tlf = tmp.toString()
 
-    print("Introduce tu telefono por favor: ")
-    var tmp2:String?=readLine()
-    var tlf=tmp1.toString()
+                var personaAColar = Persona(dni, persona.numeroFila + 1, nombre, tlf)
+                fila.add(personaAColar)
 
-    pt.DNI=dni
-    pt.nombre=nombre
-    pt.telefono=tlf
-    print("¿Conoce a alguien de esta fila? Si es así inserte el DNI por favor: ")
-    var r:String?=readLine()
-    for(persona in fila){
-        if(persona.DNI==r){
-            print("Conoces a ${persona.nombre},te pondremos detrás suya")
-            fila.add(persona.numeroFila+1,persona)
+            } else {
+                print("No conoces a nadie")
+                return
+            }
         }
-        break
+    }else{
+        print("No podemos colarte ahora mismo")
     }
 }
+fun delanteDe() {
+    if(fila.size>2) {
+        print("Introduce el DNI de la persona que conoces: ")
+        var tmp2: String? = readLine()
+        var dni2 = tmp2.toString()
+        for (persona in fila) {
+            if (persona.DNI == dni2) {
+                println("Conoces a ${persona.nombre},te pondremos delante suya")
+                print("Introduce tu DNI por favor: ")
+                var tmp: String? = readLine()
+                var dni = tmp.toString()
+
+                print("Introduce tu nombre por favor: ")
+                var n: String? = readLine()
+                var nombre = tmp.toString()
+
+                print("Introduce tu telefono por favor: ")
+                var t: String? = readLine()
+                var tlf = tmp.toString()
+
+                var personaAColar = Persona(dni, persona.numeroFila - 1, nombre, tlf)
+                fila.add(personaAColar)
+
+            } else {
+                print("No conoces a nadie")
+                return
+            }
+        }
+    }else{
+        print("No podemos ponerte delante de nadie ahora mismo")
+    }
+}
+

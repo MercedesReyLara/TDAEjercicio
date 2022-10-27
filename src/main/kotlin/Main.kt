@@ -6,6 +6,7 @@ fun main(args: Array<String>) {
         println("2)Colarme")
         println("3)Ponerme delante de")
         println("4)¿Cuantas personas hay en la lista?")
+        println("5)Ya tengo sitio, quiero comprar ahora mi entrada")
         print("Elije una opción: ")
         var r = readLine()?.toIntOrNull()
         var numero: Int = r ?: 0
@@ -18,26 +19,33 @@ fun main(args: Array<String>) {
 
                 print("Introduzca su nombre: ")
                 var tmp2: String? = readLine()
-                var nombre = tmp.toString()
+                var nombre = tmp2.toString()
 
                 print("Introduzca su telefono: ")
                 var tmp3: String? = readLine()
-                var telefono = tmp.toString()
+                var telefono = tmp3.toString()
 
                 val p = Persona(dni, fila.lastIndex + 1, nombre, telefono)
                 fila.add(p)
-                comprarEntrada()
+                print("¿Desea realizar comprar una entrada ahora (S/N)? ")
+                var comprar:String?=readLine()
+                if(comprar=="S"){
+                    comprarEntrada()
+                }else{
+                    print("Guardaremos tu sitio")
+                }
             } else {
                 println("Imposible añadir mas personas a la lista")
             }
-       /* } else if (numero == 2) {
+       } else if (numero == 2) {
             colarse()
-            comprarEntrada()
         } else if (numero == 3) {
-*/
+            delanteDe()
         } else if (numero == 4) {
             longitudFila()
-        } else {
+        } else if(numero==5){
+            comprarEntrada()
+        }else{
             print("OPCION NO DISPONIBLE")
             return
         }
